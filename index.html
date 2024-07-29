@@ -1,0 +1,190 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- <titlec>CS 416 Narrative Visualization Project</title> -->
+  </head>
+
+  <body class="body-content">
+    <header class="header">
+      <div class="header__intro">
+        <h1 class="header__title">CS 416 Narrative Visualization</h1>
+        <h2 class="header__subtitle">
+          Video Game Sales 1960 - 2016: Booting Up an Industry
+        </h2>
+      </div>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <button class="nav__btn" id="sales-timelapse-btn">
+              Sales Timelapse
+            </button>
+          </li>
+          <li class="nav__item">
+            <button class="nav__btn" id="data-exploration-btn">
+              Data Exploration
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+      <!-- TODO - navigation controls  -->
+      <!-- year slider -->
+      <!-- filter by genre, platform -->
+      <div class="visualization-view">
+        <div class="sidebar sidebar--hidden">
+          <h3>Filters</h3>
+          <div class="sidebar-filters">
+            <div class="sidebar-filters__filter-group">
+              <label for="genre-filter">Genre:</label>
+              <select
+                name="genre-filter"
+                class="sidebar-filters__filter"
+                id="genre-filter"
+              ></select>
+            </div>
+            <div class="sidebar-filters__filter-group">
+              <label for="platform-filter">Platform:</label>
+              <select
+                name="platform-filter"
+                class="sidebar-filters__filter"
+                id="platform-filter"
+              ></select>
+            </div>
+            <div class="sidebar-filters__filter-group">
+              <label for="publisher-filter">Publisher:</label>
+              <select
+                name="publisher-filter"
+                class="sidebar-filters__filter"
+                id="publisher-filter"
+              ></select>
+            </div>
+            <div class="sidebar-filters__filter-group">
+              <label for="developer-filter">Developer:</label>
+              <select
+                name="developer-filter"
+                class="sidebar-filters__filter"
+                id="developer-filter"
+              ></select>
+            </div>
+            <div
+              class="sidebar-filters__filter-group sidebar-filters__filter-group--radio"
+            >
+              <fieldset class="sidebar-filters__fieldset">
+                <legend>Platform Release Year Annotations</legend>
+                <div class="sidebar-filters__radio">
+                  <input
+                    type="radio"
+                    id="radio-no-platforms"
+                    name="platform-annotations"
+                    value="none"
+                  />
+                  <label for="radio-no-platforms">No Platforms</label>
+                </div>
+                <div class="sidebar-filters__radio">
+                  <input
+                    type="radio"
+                    id="radio-major-platforms"
+                    name="platform-annotations"
+                    value="major"
+                  />
+                  <label for="radio-major-platforms">Major Platforms</label>
+                </div>
+                <div class="sidebar-filters__radio">
+                  <input
+                    type="radio"
+                    id="radio-all-platforms"
+                    name="platform-annotations"
+                    value="all"
+                    checked
+                  />
+                  <label for="radio-all-platforms">All Platforms</label>
+                </div>
+              </fieldset>
+            </div>
+            <div
+              class="sidebar-filters__filter-group sidebar-filters__filter-group--checkbox"
+            >
+              <label for="show-world-events-input"
+                >Show World Events Annotations?</label
+              >
+              <input type="checkbox" id="show-world-events-input" />
+            </div>
+          </div>
+          <p class="sidebar__warning">
+            Annotations will only appear on unfiltered graph
+          </p>
+        </div>
+        <div class="primary-visualization">
+          <p
+            id="primary-visualization-title"
+            class="primary-visualization-title"
+          ></p>
+          <svg class="viz-svg" id="primary-viz">
+            <g class="legend"></g>
+          </svg>
+          <div class="year-slider-wrapper">
+            <input
+              type="range"
+              class="year-slider"
+              id="year-range"
+              name="year-range"
+            />
+            <label for="year-range" id="year-range-label">Sales in 1980</label>
+          </div>
+        </div>
+      </div>
+      <div class="data-explanation" id="intro-data-explanation">
+        <p>
+          In today's day and age, video games are one of the most popular forms
+          of media and entertainment, accounting for $57.2 billion dollars of US
+          Spending in 2023 alone
+          <a
+            href="https://www.prnewswire.com/news-releases/us-consumer-video-game-spending-totaled-57-2-billion-in-2023--302055683.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            >(Source)</a
+          >.
+        </p>
+        <p>
+          But how did we get to this point, and what contributed to the growth
+          of the market? These are the questions this narrative visualization
+          will explore. We will use the Video Games Sales Dataset, available
+          publically at
+          <a
+            href="https://www.kaggle.com/datasets/sidtwr/videogames-sales-dataset?select=Video_Games_Sales_as_at_22_Dec_2016.csv"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Kaggle</a
+          >.
+        </p>
+        <p>
+          We begin with a timelapse of video game sales in 4 regions (North
+          America, Europe, Japan, and Other), as well as worldwide sales.
+          Afterwards, feel free to use the header nav to explore the dataset
+        </p>
+      </div>
+      <div class="data-explanation" id="exploration-data-explanation">
+        <p>
+          Above are plotted the sales for each region over time. In this format,
+          we can see the progression and at times, regression of sales. The
+          annotations provide some potential explanations for these developments
+        </p>
+        <p>
+          If you're interested in seeing how overall trends for video game sales
+          differ based on various game attributes, use the filters on the
+          left-hand side to explore these differences
+        </p>
+        <p>
+          Additionally, click on a given plot point on the graph to drill into
+          the performance of games in that particular year and region
+        </p>
+      </div>
+    </main>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="./viz.js"></script>
+  </body>
+</html>

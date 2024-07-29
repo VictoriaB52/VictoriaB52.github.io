@@ -1,0 +1,243 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+
+:root {
+  --black: #000;
+  --white: #fff;
+  --page-background: #dedcdc5a;
+  --global-color: #462390;
+  --NA-color: #256f49;
+  --EU-color: #1377f1;
+  --JP-color: #b40606;
+  --other-color: #d1830f;
+  --year-input-accent: #238c90;
+  --nav-bg: #1061a7;
+  --nav-bg-hover: #0c4a80;
+  --warning-color: #e70404;
+}
+
+.body-content {
+  margin: 0;
+  font-family: "Roboto";
+  background-color: var(--page-background);
+  padding: 2rem;
+}
+
+.header {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.header__title,
+.header__subtitle {
+  margin: 0.5rem 0;
+}
+
+.nav__list {
+  padding: 0;
+  list-style: none;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    gap: 20px;
+  }
+}
+
+.nav__item {
+  padding: 0.5rem 0;
+}
+
+.nav__btn {
+  padding: 1rem 0.75rem;
+  background-color: var(--nav-bg);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  border: none;
+  transition: background-color 0.25s;
+  cursor: pointer;
+}
+
+.nav__btn:hover,
+.nav__btn:focus {
+  background-color: var(--nav-bg-hover);
+}
+
+.data-explanation--hidden {
+  display: none;
+}
+
+.visualization-view {
+  display: flex;
+}
+
+.sidebar {
+  width: 12%;
+  margin-right: 3rem;
+  padding: 0.5rem;
+}
+
+.sidebar--hidden {
+  display: none;
+}
+
+.sidebar-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar-filters__filter-group {
+  display: flex;
+  flex-direction: column;
+}
+.sidebar-filters__radio {
+  margin: 0.75rem 0;
+}
+.sidebar-filters__filter-group--checkbox {
+  flex-direction: row;
+  gap: 10px;
+}
+
+.sidebar-filters__filter {
+  padding: 0.5rem 0;
+}
+
+.sidebar__warning {
+  color: var(--warning-color);
+  font-weight: 500;
+}
+
+.primary-visualization {
+  width: 100%;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 1rem;
+  background-color: var(--white);
+  border: 1px solid var(--black);
+  border-radius: 4px;
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.primary-visualization-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.sales-bubble-global,
+.legend-global,
+.dot-global,
+.bar-global {
+  fill: var(--global-color);
+}
+
+.sales-bubble-NA,
+.legend-north-america,
+.dot-NA,
+.bar-north-america {
+  fill: var(--NA-color);
+}
+
+.sales-bubble-EU,
+.legend-europe,
+.dot-EU,
+.bar-europe {
+  fill: var(--EU-color);
+}
+
+.sales-bubble-JP,
+.legend-japan,
+.dot-JP,
+.bar-japan {
+  fill: var(--JP-color);
+}
+
+.sales-bubble-other,
+.legend-other,
+.dot-other,
+.bar-other {
+  fill: var(--other-color);
+}
+
+.sales-bubble-text {
+  text-anchor: middle;
+  fill: var(--white);
+  font-size: 1.125rem;
+  z-index: 1;
+}
+
+.year-slider-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 0 auto;
+}
+
+.year-slider-wrapper--hidden {
+  display: none;
+}
+
+.year-slider {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  accent-color: var(--year-input-accent);
+}
+
+.data-explanation {
+  margin-top: 2rem;
+}
+
+.x-axis,
+.y-axis {
+  font-size: 13px;
+}
+
+.line-graph-path {
+  fill: none;
+  stroke-width: 0.125rem;
+}
+
+.dot {
+  cursor: pointer;
+}
+
+.line-graph-path-global {
+  stroke: var(--global-color);
+}
+
+.line-graph-path-NA {
+  stroke: var(--NA-color);
+}
+
+.line-graph-path-EU {
+  stroke: var(--EU-color);
+}
+
+.line-graph-path-JP {
+  stroke: var(--JP-color);
+}
+
+.line-graph-path-other {
+  stroke: var(--other-color);
+}
+
+.annotations {
+  pointer-events: none;
+}
+
+.annotation {
+  border: 1px solid var(--black);
+  padding: 0.25rem;
+  text-align: center;
+  font-size: 0.8125rem;
+}
