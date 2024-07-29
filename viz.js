@@ -48,7 +48,6 @@ Promise.resolve(d3.csv("data/vgsales.csv")).then((data) => {
   });
 
   setupTimelapse(svg, filteredData);
-  explorationBtn.click();
 });
 
 function setupTimelapse(svg, filteredData) {
